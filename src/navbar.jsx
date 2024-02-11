@@ -187,9 +187,9 @@ function Navbar(props){
                     <Link className="linke" to="/">Home</Link>
                     <span className="linke dropdowne" onClick={burgerToggle}>Products <img className="dropdowne-icon" src={Dropdown} alt="dropdownburger"/></span>
                     <div className="burger-dropdown" style={burgerStyle}>
-                        <Link to="/products/rings" className="linke">Rings </Link>
-                        <Link to="/products/bracelets" className="linke">Bracelets </Link>
-                        <Link to="/products/watches" className="linke">Watches </Link>
+                        <Link to="/products/ring" className="linke">Rings </Link>
+                        <Link to="/products/bracelet" className="linke">Bracelets </Link>
+                        <Link to="/products/watch" className="linke">Watches </Link>
                     </div>
                     <Link className="linke" to="/contact">Contact Us</Link>
                     
