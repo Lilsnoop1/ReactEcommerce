@@ -3,18 +3,18 @@ body{
     padding: 0;
     background-color: lightgray !important;
 }
-@font-face {
-    font-family: gillSans;
+/* @font-face {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     src: url("/Users/ammarzulfiqar/Desktop/eCommerce/frontend/ecommerce/public/gill-sans-2-cufonfonts/Gill Sans.otf");
 }
 @font-face {
-    font-family: gillSansBold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serifBold;
     src: url("/Users/ammarzulfiqar/Desktop/eCommerce/frontend/ecommerce/public/gill-sans-2-cufonfonts/Gill Sans Bold.otf");
 }
 @font-face{
     font-family: helveticabhai;
     src : url("/Users/ammarzulfiqar/Desktop/eCommerce/frontend/ecommerce/public/Helvetica-Neue-Font/Helvetica Neue W01 66 Medium It/Helvetica Neue W01 66 Medium It.ttf")
-}
+} */
 
 p{
     margin: 0 !important;
@@ -29,7 +29,7 @@ p{
 }
 .sale-text{
     color: white;
-    font-family: gillSans;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 2.5vh;
     letter-spacing: 0.25vh;
 }
@@ -191,7 +191,7 @@ p{
     z-index: 0;
 }
 .main-text{
-    font-family: gillSans;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 7vh;
     letter-spacing: 0.5vh;
     text-decoration: underline;
@@ -206,7 +206,7 @@ p{
     border: #4F2500 solid 2vh;
 }
 .style{
-    font-family: gillSans ;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
 }
 .myContainer{
     height: auto;
@@ -224,7 +224,7 @@ p{
     display: flex;
     justify-content: center;
     border: #4F2500 1vh solid;
-    font-family: gillSans;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 7vh;
     padding: 1vh;
     padding-top: 2vh;
@@ -236,7 +236,7 @@ p{
 .info{
     padding: 1vh 0vh 0vh 1.5vh;
     font-size: 2vh;
-    font-family: gillSans;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     width: 20vh;
     position: relative;
     left: 1vh;
@@ -248,7 +248,7 @@ p{
 }
 .addtocart{
     font-size: 3vh;
-    font-family: gillSans;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: transparent;
     border: #282A3A solid 0.5vh;
 
@@ -273,7 +273,7 @@ p{
     height: 70vh;
     align-items: center;
     width: 100%;
-    font-family: gillSans;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .descrip-info{
     display: flex;
@@ -286,7 +286,7 @@ p{
 }
 .descrip-button{
     width: 25vh;
-    font-family: gillSans;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 3vh;
     text-align: center;
     padding: 1vh 0vh;
@@ -661,7 +661,7 @@ p{
     padding: 1vh;
     border-bottom: #282A3A 2px solid ;
     border-left: #282A3A 2px solid;
-    font-family: gillSans;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: #282A3A;
     color: white;
     box-shadow: -1vh 1vh 1vh black;
@@ -684,7 +684,7 @@ p{
     align-items: center;
 }
 .order-header{
-    font-family: gillSans;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: #282A3A;
     color: white;
     padding: 1vh;
@@ -708,7 +708,7 @@ p{
 .contact-head{
     font-size: 3.5vh;
     color: #282A3A;
-    font-family: gillSans;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: center;
     border: #282A3A 0.5vh solid;
     padding: 0.5vh;
@@ -754,7 +754,7 @@ p{
     justify-content: center;
     gap: 5vh;
     font-size: 2.5vh;
-    font-family: gillSans;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .input-checkbox{
     border-radius: 100%;
@@ -769,7 +769,7 @@ p{
     font-size: 4vh;
     border-radius: 1vh;
     margin-left: 35%;
-    font-family: gillSans;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .submit-form:hover{
     background-color: #872341
@@ -779,12 +779,12 @@ p{
     flex-direction: row;
     justify-content: space-between;
     font-size: 4vh;
-    font-family: gillSans;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-top: 1vh;
 }
 .email-check{
     color: red;
-    font-family: gillSans;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .product-list-div{
     display: flex;
@@ -816,7 +816,7 @@ p{
 .info-data{
     display: flex;
     font-size: 2.5vh;
-    font-family: gillSans;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     flex-direction: column;
     height: 100%;
     gap: 1vh;
@@ -834,7 +834,7 @@ p{
     width: 3.25vh;
     /* padding: 1vh !important; */
     font-size: 1.75vh;
-    font-family: gillSans;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     border-radius: 100%;
     align-items: flex-end;
     justify-content: center;
@@ -855,7 +855,7 @@ p{
 }
 .footer-comp{
     font-size: 2vh;
-    font-family: gillSans;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     display: flex;
     flex-direction: column;
     gap: 2vh;
@@ -870,7 +870,7 @@ p{
     height: 80vh;
     font-size: 4vh;
     justify-content: center;
-    font-family: gillSans;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .form-data{
     display: flex;
