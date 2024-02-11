@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import Navbar from "./navbar";
-
+import axios from "axios";
 function Checkout(props){
     const [display,setDisplay] = useState("none");
     const [kart,setKart] = useState(props.realCart);
@@ -10,6 +10,8 @@ function Checkout(props){
     const [validationText,setValidationText] = useState("none");
     var total = 0;
 
+
+    const rootUrl = "https://drip-dextra-server.vercel.app";
     function handleSubmit(event){
         event.preventDefault();
         setValidationText("block")
@@ -22,7 +24,7 @@ function Checkout(props){
             address:event.target[4].value
         }
         const fetchData = async ()=>{
-            const dataposter = await fetch("/submit",{
+            const dataposter = await axios.post(`${rootUrl}/submit`,{
                 method:"POST",
                 body:JSON.stringify(objectToSave),
                 headers:{

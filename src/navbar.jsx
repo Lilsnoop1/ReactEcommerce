@@ -14,7 +14,7 @@ function Navbar(props){
     const [cartlistamount,setcartamount] = useState(0);
     const [state,setState] = useState(props.finalCart);
     // const [cartCount,setCartcount]  = useState(props.cartVal);
-
+    const rootUrl = "https://drip-dextra-server.vercel.app";
 
     useEffect(()=>{
         const fetchData= async()=>{
@@ -107,7 +107,7 @@ function Navbar(props){
             quantity: valArr[index]
         }
         
-        const dataSaver = await fetch("/update",{
+        const dataSaver = await fetch(`${rootUrl}/update`,{
             method:"POST",
             body:JSON.stringify(dataToSave),
             headers:{
@@ -133,7 +133,7 @@ function Navbar(props){
             id: idtoDel
         }
         
-        const datadeleter = await fetch("/deletefromcart",{
+        const datadeleter = await fetch(`${rootUrl}/deletefromcart`,{
             method:"POST",
             body:JSON.stringify(dataToDelete),
             headers:{

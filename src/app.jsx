@@ -7,8 +7,11 @@ import {v4 as uuidv4} from 'uuid';
 import Checkout from "./checkout.js";
 import Footer from "./footer.jsx";
 import Contact from "./contact.jsx";
+import axios from "axios";
+// http://localhost:27017
 
 function App(){
+    const rootUrl = "https://drip-dextra-server.vercel.app";
     function getCookie(cname) {
         let name = cname + "=";
         let decodedCookie = decodeURIComponent(document.cookie);
@@ -41,7 +44,7 @@ function App(){
 
     useEffect(()=>{
         const responseid = async()=>{
-            await fetch("/xyz",{
+            await fetch(`${rootUrl}/xyz`,{
                 method:"POST",
                 body:JSON.stringify(idobject),
                 headers:{
@@ -55,17 +58,16 @@ function App(){
 
     useEffect(()=>{
         const fetchData = async ()=>{
-            var counter = 0;
-            const responseRing = await fetch("/rings");
+            const responseRing = await fetch(`${rootUrl}/rings`);
             const ringjson = await responseRing.json();
 
-            const responseBracelet = await fetch("/bracelets");
+            const responseBracelet = await fetch(`${rootUrl}/bracelets`);
             const braceletjson = await responseBracelet.json();
 
-            const responseWatches = await fetch("/watches");
+            const responseWatches = await fetch(`${rootUrl}/watches`);
             const watchjson = await responseWatches.json();
 
-            const responseCart = await fetch("/carter");
+            const responseCart = await fetch(`${rootUrl}/carter`);
             const cartjson = await responseCart.json();
 
 

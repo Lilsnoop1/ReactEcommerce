@@ -7,6 +7,7 @@ import ProductCard from "./productCard";
 function Products(props){
     const [display,setDisplay] = useState("none");
     const [kart,setKart] = useState(props.realCart);
+    const rootUrl = "https://drip-dextra-server.vercel.app";
     
     let {productName} = useParams();
     function handleClick(){
@@ -14,7 +15,7 @@ function Products(props){
     }
     async function handleSubmit(data,index){
         const cartItem = {"Title":data.Title,"Price":data.Price,"quantity":1,"imgurl":data.imgurl,"customerDeviceID":props.deviceID,"productid":index,"producttype":productName};
-        const response = await fetch("/cart",{
+        const response = await fetch(`${rootUrl}/cart`,{
             method:'POST',
             body:JSON.stringify(cartItem),
             headers:{

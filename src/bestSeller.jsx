@@ -2,7 +2,6 @@ import React from "react";
 import Slider from "react-slick";
 import "./myslick.css";
 import "./myslick-theme.css";
-import img from "./shutterstock_380043169.jpg";
 import { Link } from "react-router-dom";
 
 function Card(props){
@@ -20,7 +19,7 @@ function Card(props){
     return <div>
     <Link to={"/productdescription/"+Id+"/"+Type} className="description-link">
         <form onSubmit={handleSubmit}>
-            <img className="imagey" src={props.url} alt="watch Image"/>
+            <img className="imagey" src={props.url} alt="watch"/>
             <p className="info">{fitVal}</p>
             <p className="info">Rs.{Math.floor(props.price)} <span className="sale-price">{Math.floor(saledPrice)}</span></p>
             <button type="submit" className="addtocart">Add to Cart</button>

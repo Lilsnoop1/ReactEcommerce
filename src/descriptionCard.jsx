@@ -4,6 +4,7 @@ import plus from "./plus.png"
 import { Link } from "react-router-dom";
 function DescriptionCard(props){
     const [quantity,setQuantity] = useState(1);
+    const rootUrl = "https://drip-dextra-server.vercel.app";
     function handleClick(event){
         if(event.target.className==="increment"){
             var inc = event.target.nextSibling.value;
@@ -19,7 +20,7 @@ function DescriptionCard(props){
         await props.openCart();
         // event.preventDefault();
         const cartItem = {"Title":props.title,"Price":props.price,"quantity":quantity,"imgurl":props.url,"customerDeviceID":props.deviceID,"productid":props.paramVal.id,"producttype":props.paramVal.type};
-        const response = await fetch("/cart",{
+        const response = await fetch(`${rootUrl}/cart`,{
             method:'POST',
             body:JSON.stringify(cartItem),
             headers:{
