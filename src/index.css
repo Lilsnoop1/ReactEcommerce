@@ -148,6 +148,14 @@ p{
         padding: 10vh 2vh 10vh 2vh;
     }
 }
+@media all and (max-width:400px){
+    .slick-slider{
+        padding: 0 !important;
+    }
+    .bestsell-title{
+        font-size: 4vh !important;
+    }
+}
 .sale-price {
     text-decoration: line-through;
     color: red;
