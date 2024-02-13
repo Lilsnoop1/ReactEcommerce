@@ -7,7 +7,7 @@ import ProductCard from "./productCard";
 function Products(props){
     const [display,setDisplay] = useState("none");
     const [kart,setKart] = useState(props.realCart);
-    const rootUrl = "http://localhost:27017";
+    const rootUrl = "https://drip-dextra-server.vercel.app";
     
     let {productName} = useParams();
     function handleClick(){

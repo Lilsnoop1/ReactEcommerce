@@ -14,7 +14,7 @@ function Navbar(props){
     const [cartlistamount,setcartamount] = useState(0);
     const [state,setState] = useState(props.finalCart);
     // const [cartCount,setCartcount]  = useState(props.cartVal);
-    const rootUrl = "http://localhost:27017";
+    const rootUrl = "https://drip-dextra-server.vercel.app";
 
     useEffect(()=>{
         const fetchData= async()=>{

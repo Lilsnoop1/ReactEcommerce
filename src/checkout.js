@@ -11,7 +11,7 @@ function Checkout(props){
     var total = 0;
 
 
-    const rootUrl = "http://localhost:27017";
+    const rootUrl = "https://drip-dextra-server.vercel.app";
     function handleSubmit(event){
         event.preventDefault();
         setValidationText("block")
