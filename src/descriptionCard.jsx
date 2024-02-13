@@ -4,7 +4,7 @@ import plus from "./plus.png"
 import { Link } from "react-router-dom";
 function DescriptionCard(props){
     const [quantity,setQuantity] = useState(1);
-    const rootUrl = "https://drip-dextra-server.vercel.app";
+    const rootUrl = "http://localhost:27017";
     function handleClick(event){
         if(event.target.className==="increment"){
             var inc = event.target.nextSibling.value;

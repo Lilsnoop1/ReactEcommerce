@@ -310,7 +310,20 @@ p{
     background-color: #282A3A;
     color: white;
 }
-@media all and (max-width:700px){
+@media all and (min-width:500px) and (max-width:700px){
+    .inner-check{
+        flex-direction: column !important;
+        gap: 10vh;
+    }
+    .headers-checkem{
+        font-size: 2vh !important;
+    }
+    .email-contact{
+        flex-direction: column !important;
+    }
+    .order-Review{
+        width: 100% !important;
+    }
     .descrip{
         height: 100vh;
         padding: 4vh;
@@ -382,13 +395,67 @@ p{
         margin-left: 20% !important;
     }
 }
-@media all and (max-width:1100px) {
+@media all and (max-width:465px){
+    .cart-component{
+        flex-direction: column;
+        gap: 1vh;
+    }
+    .save-button{
+        width: 20% !important;
+        font-size: 1.5vh;
+    }
+    .increment-navbar,.decrement-navbar{
+        width: 2vh !important;
+        height: 2vh !important;
+    }
+    .value{
+        font-size: 1.75vh !important;
+    }
+    .save-button{
+        font-size: 1.75vh !important;
+        width: 5vh !important;
+        padding: 0 0.5vh !important;
+    }
+    .cart-info{
+        font-size: 1.25vh !important;
+    }
+    .cart-image{
+        width: 100% !important;
+    }
+    .cart-image-link{
+        width:100% !important;
+    }
+    .quantit-div{
+        width: 100% !important;
+    }
+    .quantits{
+        gap: 0vh !important;
+        justify-content: space-evenly !important;
+    }
+    .singleCard{
+        width: 23vh !important;
+        height: 38vh !important;
+    }
+    .info-data{
+        font-size: 1.5vh !important;
+    }
     .inner-check{
         flex-direction: column !important;
         gap: 10vh;
     }
-    .checkemorders{
+    .headers-checkem{
+        font-size: 2vh !important;
+    }
+    .email-contact{
+        flex-direction: column !important;
+    }
+    .order-Review{
         width: 100% !important;
+    }
+}
+@media all and (min-width:1000px) and (max-width:1100px) {
+    .checkemorders{
+        width: 80% !important;
     }
     .order-Review{
         width: 100% !important;
@@ -428,9 +495,12 @@ p{
         font-size: 1vh !important;
         margin-left: 20% !important;
     }
+    .email-contact{
+        justify-content: space-around !important;
+    }
 }
 
-@media all and (min-width:1050px){
+@media all and (min-width:1200px){
     .cart-image{
         aspect-ratio: 1.5;
         width: 100% !important;
@@ -476,6 +546,8 @@ p{
         margin-left: 20% !important;
     }
 }
+
+
 .descrip{
     display: flex;
     flex-direction: column;
@@ -560,6 +632,7 @@ p{
 .cart-image{
     aspect-ratio: 1.3;
     border-radius: 1.5vh;
+    width: 80%;
 }
 .cart-image-link{
     width: 30%;
@@ -622,6 +695,8 @@ p{
     color: white;
     border: none;
     padding: 0 1vh;
+    font-size: 2vh;
+    text-align: center;
 }
 .quantit-div{
     display: flex;
@@ -680,6 +755,7 @@ p{
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
+    gap: 10vh;
 }
 .order-Review{
     display: flex;
@@ -809,6 +885,10 @@ p{
     padding: 5vh 2vh 2vh 2vh;
 }
 .singleCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1vh;
     width: 45vh;
     height: 50vh;
     padding: 1.5vh;
@@ -823,7 +903,7 @@ p{
 }
 .info-data{
     display: flex;
-    font-size: 2.5vh;
+    font-size: 2vh;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     flex-direction: column;
     height: 100%;
@@ -879,6 +959,9 @@ p{
     font-size: 4vh;
     justify-content: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.headers-checkem{
+    font-size: 3vh;
 }
 .form-data{
     display: flex;

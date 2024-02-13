@@ -11,7 +11,7 @@ function Checkout(props){
     var total = 0;
 
 
-    const rootUrl = "https://drip-dextra-server.vercel.app";
+    const rootUrl = "http://localhost:27017";
     function handleSubmit(event){
         event.preventDefault();
         setValidationText("block")
@@ -63,6 +63,11 @@ function Checkout(props){
 
 
     }
+    if(kart){
+        kart.map((karter)=>{
+        total = total + parseInt(karter.Price);
+    })
+    }
     return <div>
         <div className="checkout-nav">
             <Navbar displayProperty={display} displaySetter={setDisplay} finalCart={kart}  newState={setKart}  setcartem={props.setHomeKart}/>
@@ -74,10 +79,9 @@ function Checkout(props){
                         return<div className="singleProduct">
                             <img src={eachKart.imgurl} className="checkout-image"/>
                             <div className="checkout-info">
-                                <h6>{eachKart.Title}</h6>
-                                <h5>Rs {eachKart.Price}</h5>
-                                <h6>Quantity: {eachKart.quantity}</h6>
-                                {total = total + (eachKart.Price*eachKart.quantity)}
+                                <h6 className="headers-checkem">{eachKart.Title}</h6>
+                                <h5 className="headers-checkem">Rs {Math.floor(parseFloat(eachKart.Price))}</h5>
+                                <h6 className="headers-checkem">Quantity: {eachKart.quantity}</h6>
                             </div>
                         </div>
                     }):null}

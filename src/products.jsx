@@ -7,7 +7,7 @@ import ProductCard from "./productCard";
 function Products(props){
     const [display,setDisplay] = useState("none");
     const [kart,setKart] = useState(props.realCart);
-    const rootUrl = "https://drip-dextra-server.vercel.app";
+    const rootUrl = "http://localhost:27017";
     
     let {productName} = useParams();
     function handleClick(){
@@ -42,7 +42,7 @@ function Products(props){
         </div>
     </div>;
     }else if(productName==="ring"){
-        return <div>
+        return <div key={kart}>
         <Navbar displayProperty={display} displaySetter={setDisplay} finalCart={kart}  newState={setKart}  setcartem={props.setHomeKart}/>
         <div className="product-list-div">
             <h2>Products (60)</h2>
@@ -54,7 +54,7 @@ function Products(props){
         </div>
     </div>;
     }else{
-        return <div>
+        return <div key={kart}>
         <Navbar displayProperty={display} displaySetter={setDisplay} finalCart={kart}  newState={setKart}  setcartem={props.setHomeKart}/>
         <div className="product-list-div">
             <h2>Products (60)</h2>

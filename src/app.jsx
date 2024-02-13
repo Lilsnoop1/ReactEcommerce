@@ -11,7 +11,8 @@ import axios from "axios";
 // http://localhost:27017
 
 function App(){
-    const rootUrl = "https://drip-dextra-server.vercel.app";
+    const rootUrl = "http://localhost:27017";
+    console.log(process.env.NODE_ENV);
     function getCookie(cname) {
         let name = cname + "=";
         let decodedCookie = decodeURIComponent(document.cookie);
