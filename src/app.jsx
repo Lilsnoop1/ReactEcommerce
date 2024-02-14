@@ -11,6 +11,7 @@ import axios from "axios";
 // http://localhost:27017
 
 function App(){
+    // const rootUrl = "http://localhost:27017";
     const rootUrl = "https://drip-dextra-server.vercel.app";
     console.log(process.env.NODE_ENV);
     function getCookie(cname) {
@@ -46,7 +47,7 @@ function App(){
     useEffect(()=>{
         const responseid = async()=>{
             await fetch(`${rootUrl}/xyz`,{
-                method:"POST",
+                method:'POST',
                 body:JSON.stringify(idobject),
                 headers:{
                     'Content-Type':'application/json'
@@ -54,7 +55,7 @@ function App(){
             });
         }
         responseid();
-    },[])
+    },[idobject])
 
 
     useEffect(()=>{

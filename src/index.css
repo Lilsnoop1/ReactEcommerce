@@ -400,6 +400,14 @@ p{
         flex-direction: column;
         gap: 1vh;
     }
+    .checkout-image{
+        width: 19vh !important;
+        height: 19vh !important;
+        aspect-ratio: 0 !important;
+    }
+    .singleProduct{
+        padding: 0 !important;
+    }
     .save-button{
         width: 20% !important;
         font-size: 1.5vh;
@@ -451,6 +459,57 @@ p{
     }
     .order-Review{
         width: 100% !important;
+    }
+    .descrip-container{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        gap: 5vh;
+    }
+    .descrip-image{
+        width: 70% !important;
+    }
+    .descrip-info{
+        padding: 1.5vh;
+    }
+    .product-description{
+        padding: 2vh !important;
+        width: 100% !important;
+        font-size: 1.75vh;
+    }
+    .head-descrip{
+        font-size: 2.2vh !important;
+    }
+}
+
+@media all and (max-width:250px){
+    .contact-head{
+        width: 60% !important;
+    }
+    .navbar-checkout{
+        font-size: 45% !important;
+    }
+    .descrip-container{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        gap: 5vh;
+    }
+    .descrip-image{
+        width: 70% !important;
+    }
+    .descrip-info{
+        padding: 1.5vh;
+    }
+    .product-description{
+        padding: 2vh !important;
+        width: 100% !important;
+        font-size: 1.75vh;
+    }
+    .head-descrip{
+        font-size: 2.2vh !important;
     }
 }
 @media all and (min-width:1000px) and (max-width:1100px) {
@@ -546,8 +605,15 @@ p{
         margin-left: 20% !important;
     }
 }
-
-
+@media all and (min-width:700px){
+    .navbar-checkout{
+        font-size: 80% !important;
+    }
+}
+.descrip-image{
+    aspect-ratio: 1.5;
+    width: 30%;
+}
 .descrip{
     display: flex;
     flex-direction: column;
@@ -661,12 +727,12 @@ p{
 }
 .navbar-checkout{
     width: 50%;
-    margin-left: 20vh;
+    margin-left: 30%;
     margin-top: 5vh;
     background-color: #282A3A;
     color: white;
-    padding: 2vh;
-    font-size: 4vh;
+    padding: 5% 3%;
+    font-size: 60%;
     border: none;
 }
 .price-info{
@@ -815,9 +881,9 @@ p{
 .input-to-fix{
     border-radius: 1vh;
     border: #282A3A 0.3vh solid;
-    width: 35vh;
+    width: 80%;
     padding: 0.75vh;
-    font-size: 2.5vh !important;
+    font-size: 60% !important;
     text-align: left !important;
     background-color: white  !important;
 }

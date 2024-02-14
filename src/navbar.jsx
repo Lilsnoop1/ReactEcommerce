@@ -15,6 +15,7 @@ function Navbar(props){
     const [state,setState] = useState(props.finalCart);
     // const [cartCount,setCartcount]  = useState(props.cartVal);
     const rootUrl = "https://drip-dextra-server.vercel.app";
+    // const rootUrl = "http://localhost:27017";
 
     useEffect(()=>{
         const fetchData= async()=>{
@@ -187,9 +188,9 @@ function Navbar(props){
                     <Link className="linke" to="/">Home</Link>
                     <span className="linke dropdowne" onClick={burgerToggle}>Products <img className="dropdowne-icon" src={Dropdown} alt="dropdownburger"/></span>
                     <div className="burger-dropdown" style={burgerStyle}>
-                        <Link to="/products/ring" className="linke">Rings </Link>
-                        <Link to="/products/bracelet" className="linke">Bracelets </Link>
-                        <Link to="/products/watch" className="linke">Watches </Link>
+                        <Link to="/products/ring" onClick={loadMenu} className="linke">Rings </Link>
+                        <Link to="/products/bracelet" onClick={loadMenu} className="linke">Bracelets </Link>
+                        <Link to="/products/watch" onClick={loadMenu} className="linke">Watches </Link>
                     </div>
                     <Link className="linke" to="/contact">Contact Us</Link>
                     
@@ -201,7 +202,7 @@ function Navbar(props){
                 <form onSubmit={checkout} className="cart-form">
                     {state?state.map((singleKart,index)=>{
                         const {productid,producttype}=singleKart
-                            return <div className="cart-component">
+                            return <div className="cart-component" key={props.finalCart}>
                             <Link className="cart-image-link" to={"http://localhost:3000/productdescription/"+productid+"/"+producttype}><img src={singleKart.imgurl} alt="cartdata" className="cart-image"/></Link>
                             <div className="quantit-div">
                                 <p className="cart-info">{singleKart.Title}</p>

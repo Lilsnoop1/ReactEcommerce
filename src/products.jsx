@@ -8,6 +8,7 @@ function Products(props){
     const [display,setDisplay] = useState("none");
     const [kart,setKart] = useState(props.realCart);
     const rootUrl = "https://drip-dextra-server.vercel.app";
+    // const rootUrl = "http://localhost:27017";
     
     let {productName} = useParams();
     function handleClick(){
@@ -37,7 +38,7 @@ function Products(props){
             <div className="product-list">
                 {props.WatchData?props.WatchData.map((singleProduct,index)=>{
                    return <ProductCard Product={singleProduct} SubmitHandler={(event)=>{event.preventDefault();handleSubmit(singleProduct,index)}} /> 
-                }):null}
+                }):<p>Loading...</p>}
             </div>
         </div>
     </div>;
@@ -49,7 +50,7 @@ function Products(props){
             <div className="product-list">
                 {props.RingData?props.RingData.map((singleProduct,index)=>{
                    return <ProductCard Product={singleProduct} SubmitHandler={(event)=>{event.preventDefault();handleSubmit(singleProduct,index)}} /> 
-                }):null}
+                }):<p>Loading...</p>}
             </div>
         </div>
     </div>;
@@ -61,7 +62,7 @@ function Products(props){
             <div className="product-list">
                 {props.BraceletData?props.BraceletData.map((singleProduct,index)=>{
                    return <ProductCard Product={singleProduct} SubmitHandler={(event)=>{event.preventDefault();handleSubmit(singleProduct,index)}} /> 
-                }):null}
+                }):<p>Loading...</p>}
             </div>
         </div>
     </div>;

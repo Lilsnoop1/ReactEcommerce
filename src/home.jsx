@@ -10,7 +10,7 @@ function Home(props){
     const [state,setState] = useState(props.Cart);
     console.log(state);
 
-    return <div key={state}>
+    return <div>
         <SaleNav/>
         <Navbar displayProperty={display} displaySetter={setDisplay} finalCart={state} newState={setState} setcartem={props.setproductcart}/>
         <Outlet/>

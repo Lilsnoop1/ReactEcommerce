@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 function DescriptionCard(props){
     const [quantity,setQuantity] = useState(1);
     const rootUrl = "https://drip-dextra-server.vercel.app";
+    // const rootUrl = "http://localhost:27017";
     function handleClick(event){
         if(event.target.className==="increment"){
             var inc = event.target.nextSibling.value;
@@ -41,7 +42,7 @@ function DescriptionCard(props){
             <form className="descrip-container" onSubmit={(event)=>{
                 event.preventDefault();
                 handleSubmit()}}>
-            <img src={props.url} alt="product"/>
+            <img src={props.url} className="descrip-image" alt="product"/>
                 <div className="descrip-info">
                     <h2>{props.title}</h2>
                     <p className="price">Rs {Math.floor(props.price)}</p>
