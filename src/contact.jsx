@@ -1,11 +1,7 @@
-import React,{useState} from "react";
-import Navbar from "./navbar";
+import React from "react";
 
 function Contact(props){
-    const [display,setDisplay] = useState("none");
-    const [kart,setKart] = useState(props.realCart);
     return <div >
-    <Navbar displayProperty={display} displaySetter={setDisplay} finalCart={kart}  newState={setKart}  setcartem={props.setHomeKart}/>
     <div className="beeg-contact">
     <h2 className="header-checkout" id="contact">Contact Page</h2>
     </div>

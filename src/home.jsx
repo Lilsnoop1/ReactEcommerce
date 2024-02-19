@@ -6,16 +6,11 @@ import Main from "./mainSection.jsx"
 import {BestSell} from "./bestSeller.jsx"
 
 function Home(props){
-    const [display,setDisplay] = useState("none");
-    const [state,setState] = useState(props.Cart);
-    console.log(state);
-
     return <div>
         <SaleNav/>
-        <Navbar displayProperty={display} displaySetter={setDisplay} finalCart={state} newState={setState} setcartem={props.setproductcart}/>
         <Outlet/>
         <Main/>
-        {props.WatchData?<BestSell Watch={props.WatchData} Ring={props.RingData} Bracelet={props.BraceletData} displaySet={setDisplay}/>:null}
+        {props.WatchData?<BestSell Watch={props.WatchData} Ring={props.RingData} Bracelet={props.BraceletData}/>:null}
 
     </div>
 }

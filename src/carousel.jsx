@@ -1,7 +1,7 @@
 import Carousel from 'react-bootstrap/Carousel';
-import imageOne from './shutterstock_357666554.jpg';
-import imageTwo from "./shutterstock_380043169.jpg";
-import imageThree from "./shutterstock_367553489.jpg"
+import imageOne from './shutterstock_357666554.webp';
+import imageTwo from "./shutterstock_380043169.webp";
+import imageThree from "./shutterstock_367553489.webp"
 function CarouselFadeExample() {
   return (
     <Carousel fade touch interval={2000}>

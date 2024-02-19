@@ -72,30 +72,30 @@ function BestSell(props){
             {props.Watch.map((singleWatch,indexofWatch)=>{
                 for(let x=56;x<60;x++){
                     if(indexofWatch===x){
-                        return <Card url={singleWatch.imgurl} price={singleWatch.Price} title={singleWatch.Title} type="watch"
+                        return (<Card url={singleWatch.imgurl} price={singleWatch.Price} title={singleWatch.Title} type="watch"
                             id={indexofWatch}
-                        />
+                        />)
                     }
                 }
             })}
             {props.Ring.map((singleRing,indexofRing)=>{
                 for(let x=56;x<60;x++){
                     if(indexofRing===x){
-                        return <Card url={singleRing.imgurl} price={singleRing.Price} title={singleRing.Title} type="ring"
+                        return (<Card url={singleRing.imgurl} price={singleRing.Price} title={singleRing.Title} type="ring"
                             id={indexofRing}
-                        />
+                        />)
                     }
                 }
             })}
             {props.Bracelet.map((singleBracelet,indexofBracelet)=>{
                 for(let x=56;x<60;x++){
                     if(indexofBracelet===x){
-                        return <Card url={singleBracelet.imgurl} 
+                        return (<Card url={singleBracelet.imgurl} 
                         price={singleBracelet.Price} 
                         title={singleBracelet.Title} 
                         type="bracelet"
                         id={indexofBracelet}        
-                        />
+                        />)
                     }
                 }
             })}

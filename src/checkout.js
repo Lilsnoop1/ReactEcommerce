@@ -1,9 +1,6 @@
 import React,{useState} from "react";
-import Navbar from "./navbar";
 import axios from "axios";
 function Checkout(props){
-    const [display,setDisplay] = useState("none");
-    const [kart,setKart] = useState(props.realCart);
     const [res,setRes] = useState(null);
     const [validEmail,setValidEmail] = useState(false);
     const [validPhone,setvalidPhone] = useState(false);
@@ -12,11 +9,12 @@ function Checkout(props){
 
 
     const rootUrl = "https://drip-dextra-server.vercel.app";
+    // const rootUrl = "http://localhost:27017";
     function handleSubmit(event){
         event.preventDefault();
         setValidationText("block")
         const objectToSave = {
-            itemOrdered:[...kart],
+            itemOrdered:[...props.kart],
             email:event.target[0].value,
             contact:event.target[1].value,
             firstName:event.target[2].value,
@@ -24,16 +22,27 @@ function Checkout(props){
             address:event.target[4].value
         }
         const fetchData = async ()=>{
-            const dataposter = await axios.post(`${rootUrl}/submit`,{
-                method:"POST",
-                body:JSON.stringify(objectToSave),
-                headers:{
-                    'Content-Type':'application/json'
-                }
-            })
-            if(dataposter.ok){
-                const response = await dataposter.json();
-                setRes(response);
+            // const dataposter = await fetch(`${rootUrl}/submit`,{
+            //     method:"POST",
+            //     body:JSON.stringify(objectToSave),
+            //     headers:{
+            //         'Content-Type':'application/json'
+            //     }
+            // })
+            // if(dataposter.ok){
+            //     const response = await dataposter.json();
+            //     setRes(response);
+            // }
+            try{const dataposter = await axios.post(`${rootUrl}/submit`,objectToSave,{
+                headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json;charset=UTF-8",
+                },
+            });
+            const response = dataposter.data;
+            setRes(response);
+            }catch(error){
+                console.log(error);
             }
         }
         fetchData();
@@ -63,21 +72,20 @@ function Checkout(props){
 
 
     }
-    if(kart){
-        kart.map((karter)=>{
+    if(props.kart){
+        props.kart.map((karter)=>{
         total = total + parseInt(karter.Price);
     })
     }
     return <div>
         <div className="checkout-nav">
-            <Navbar displayProperty={display} displaySetter={setDisplay} finalCart={kart}  newState={setKart}  setcartem={props.setHomeKart}/>
             <div className="product-display">
                 <h1 className="header-checkout">Your Order</h1>
                 <div className="inner-check">
                 <div className="checkemorders">
-                {kart?kart.map((eachKart)=>{
+                {props.kart?props.kart.map((eachKart)=>{
                         return<div className="singleProduct">
-                            <img src={eachKart.imgurl} className="checkout-image"/>
+                            <img src={eachKart.imgurl} className="checkout-image" alt="products"/>
                             <div className="checkout-info">
                                 <h6 className="headers-checkem">{eachKart.Title}</h6>
                                 <h5 className="headers-checkem">Rs {Math.floor(parseFloat(eachKart.Price))}</h5>

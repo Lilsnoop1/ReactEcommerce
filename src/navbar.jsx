@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import {Link} from "react-router-dom";
-import Icon from "./shopping-cart.png";
-import Menu from "./menu.png"
-import Dropdown from "./down-arrow.png"
-import closeIcon from "./close.png"
-import plus from "./icons8-plus-50.png"
-import minus from "./icons8-subtract-50.png"
-import bin from "./icons8-bin-24.png"
+import Icon from "./shopping-cart.webp";
+import Menu from "./menu.webp"
+import Dropdown from "./down-arrow.webp"
+import closeIcon from "./close.webp"
+import plus from "./icons8-plus-50.webp"
+import minus from "./icons8-subtract-50.webp"
+import bin from "./icons8-bin-24.webp"
+import axios from "axios";
 function Navbar(props){
     var [dropdown,setDropdown] = useState("none");
     var [burger,setBurger] = useState("none")
@@ -19,14 +20,16 @@ function Navbar(props){
 
     useEffect(()=>{
         const fetchData= async()=>{
-            const cartamount = await fetch(`${rootUrl}/cartamount`);
-            const responseasCart = await cartamount.json()
-
-            if(cartamount.ok){
+            try{
+                const cartamount = await axios.get(`${rootUrl}/cartamount`);
+                const responseasCart = cartamount.data;
                 setcartamount(responseasCart.cartvalues);
             }
+            catch(error){
+                console.log(error);
+            }
+          
         }
-
         fetchData()
     },[state]);
 
@@ -97,7 +100,7 @@ function Navbar(props){
         if(name==="increment-navbar"){
             currentVal++;
             setValArr(prevValue => prevValue.map((val, i) => i === idtoChange ? currentVal : val));
-        }else if(name==="decrement-navbar" && currentVal!=1){
+        }else if(name==="decrement-navbar" && currentVal!==1){
             currentVal--;
             setValArr(prevValue => prevValue.map((val, i) => i === idtoChange ? currentVal : val));
         }
@@ -108,24 +111,20 @@ function Navbar(props){
             quantity: valArr[index]
         }
         
-        const dataSaver = await fetch(`${rootUrl}/update`,{
-            method:"POST",
-            body:JSON.stringify(dataToSave),
-            headers:{
-                'Content-Type':'application/json'
-            }
-        });
-
-        if(dataSaver.ok){
-            const responseDataSaver = await dataSaver.json();
+        try{
+            const dataSaver = await axios.post(`${rootUrl}/update`,dataToSave,{
+                headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json;charset=UTF-8",
+                },
+            });
+            const responseDataSaver = dataSaver.data;
             setValArr(prevValue => prevValue.map((val, i) => i === index ? responseDataSaver.quantity : val));
-            console.log(responseDataSaver);
-            console.log(valArr);
             setState(prevCart =>prevCart.map((cartVal)=>(cartVal.Title===responseDataSaver[0].Title)?responseDataSaver[0]:cartVal));
             props.newState(prevCart =>prevCart.map((cartVal)=>(cartVal.Title===responseDataSaver[0].Title)?responseDataSaver[0]:cartVal));
-            if(props.setcartem){
-                props.setcartem(prevCart =>prevCart.map((cartVal)=>(cartVal.Title===responseDataSaver[0].Title)?responseDataSaver[0]:cartVal));
-            }
+        
+        }catch(error){
+            console.log(error);
         }
     }
     async function deleteFromList(header,idtoDel,index){
@@ -134,31 +133,27 @@ function Navbar(props){
             id: idtoDel
         }
         
-        const datadeleter = await fetch(`${rootUrl}/deletefromcart`,{
-            method:"POST",
-            body:JSON.stringify(dataToDelete),
-            headers:{
-                'Content-Type':'application/json'
-            }
-        });
-
-        if(datadeleter.ok){
-            const responseDatadeleter = await datadeleter.json();
-            setValArr(prevValue => prevValue.filter((val, i) => {return i!==index}));
-            // console.log(responseDatadeleter);
-            // console.log(valArr);
-            setState(responseDatadeleter);
-            props.newState(responseDatadeleter);
-            if(props.setcartem){
-                props.setcartem(responseDatadeleter)
-            }
-
+        try{
+                const datadeleter = await axios.post(`${rootUrl}/deletefromcart`,dataToDelete,{
+                    headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json;charset=UTF-8",
+                    },
+                });
+                const responseDatadeleter =  datadeleter.data;
+                setValArr(prevValue => prevValue.filter((val, i) => {return i!==index}));
+                // console.log(responseDatadeleter);
+                // console.log(valArr);
+                setState(responseDatadeleter);
+                props.newState(responseDatadeleter);
+        }catch(error){
+            console.log(error);
         }
     }
 
 //dont forget to parse
     return (
-        <div>
+        <div key={props.finalCart}>
             <div className="nasbar">
                 <div className="burger">
                     <img className="burger-icon" onClick={loadMenu} src={Menu} alt="burgericon"/>
@@ -185,14 +180,14 @@ function Navbar(props){
             </div>
             <div className="menu" style={menuStyle}>
                 <div className="menu-links">
-                    <Link className="linke" to="/">Home</Link>
+                    <Link className="linke" onClick={loadMenu} to="/">Home</Link>
                     <span className="linke dropdowne" onClick={burgerToggle}>Products <img className="dropdowne-icon" src={Dropdown} alt="dropdownburger"/></span>
                     <div className="burger-dropdown" style={burgerStyle}>
                         <Link to="/products/ring" onClick={loadMenu} className="linke">Rings </Link>
                         <Link to="/products/bracelet" onClick={loadMenu} className="linke">Bracelets </Link>
                         <Link to="/products/watch" onClick={loadMenu} className="linke">Watches </Link>
                     </div>
-                    <Link className="linke" to="/contact">Contact Us</Link>
+                    <Link className="linke" onClick={loadMenu} to="/contact">Contact Us</Link>
                     
                 </div>
             </div>
@@ -200,7 +195,7 @@ function Navbar(props){
             <span onClick={close} className="span-close"><img src={closeIcon} className="close-button" alt="close-icon"/></span>
                 <div className="cart-inner">
                 <form onSubmit={checkout} className="cart-form">
-                    {state?state.map((singleKart,index)=>{
+                    {props.finalCart?props.finalCart.map((singleKart,index)=>{
                         const {productid,producttype}=singleKart
                             return <div className="cart-component" key={props.finalCart}>
                             <Link className="cart-image-link" to={"http://localhost:3000/productdescription/"+productid+"/"+producttype}><img src={singleKart.imgurl} alt="cartdata" className="cart-image"/></Link>
@@ -208,16 +203,18 @@ function Navbar(props){
                                 <p className="cart-info">{singleKart.Title}</p>
                                 <p className="cart-info price-info">Price: Rs.{Math.floor(singleKart.Price * singleKart.quantity)}</p>
                                 <div className="quantits">
-                                    <input type="image" src={minus} id={index} onClick={changeVal} className="decrement-navbar" alt="changeicons" value={valArr[index]}/>
+                                    <div className="inner-quantit">
+                                        <input type="image" src={minus} id={index} onClick={changeVal} className="decrement-navbar" alt="changeicons" value={valArr[index]}/>
                                     <input type="number" className="value nav-val" readOnly value={valArr[index]?valArr[index]:singleKart.quantity}/>
                                     <input type="image" src={plus} id={index} onClick={changeVal} className="increment-navbar" alt="changeicons" value={valArr[index]}/>
+                                    </div>
                                     <button onClick={()=>saveData(index,singleKart.Title)} className="save-button" type="submit">Save</button>
-                                    <input onClick={()=>deleteFromList(singleKart.Title,singleKart.id,index)} type="image" className="bin-image" src={bin}/>
+                                    <input onClick={()=>deleteFromList(singleKart.Title,singleKart.id,index)} type="image" className="bin-image" src={bin} alt="bin"/>
                                 </div>
                             </div>     
                         </div>
-                    }):null}
-                    {state[0]?<Link to="/checkout"><button className="navbar-checkout"> Checkout</button></Link>:<h1>Cart is Empty</h1>}
+                    }):<p>yooo</p>}
+                    {props.finalCart?props.finalCart[0]?<Link to="/checkout"><button className="navbar-checkout" onClick={toggle}> Checkout</button></Link>:<h1 className="empty-warn">Cart is Empty</h1>:null}
                 </form>
                 </div>
             </div>

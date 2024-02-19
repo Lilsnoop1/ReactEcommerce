@@ -1,12 +1,12 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 
 function ProductCard(props){
 
 
 
     return <div className="singleCard">
-        <img src={props.Product.imgurl} className="product-list-image"/>
+        <Link to={"/productdescription/"+props.idtoSearch +"/"+props.Product.Type}><img src={props.Product.imgurl} className="product-list-image"/></Link>
         <div  className="info-data">
             <p id="beegtitle">{props.Product.Title}</p>
             <p>Rs {Math.floor(props.Product.Price)}</p>
