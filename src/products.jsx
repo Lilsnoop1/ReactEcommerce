@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import ProductCard from "./productCard";
 import axios from "axios";
+import getCookie from "./cookiegetter";
  
 function Products(props){
     const rootUrl = "https://drip-dextra-server.vercel.app";
@@ -10,7 +11,7 @@ function Products(props){
     let {productName} = useParams();
     async function handleSubmit(data,index){
         try{
-            const cartItem = {"Title":data.Title,"Price":data.Price,"quantity":1,"imgurl":data.imgurl,"customerDeviceID":props.deviceID,"productid":index,"producttype":productName};
+            const cartItem = {"Title":data.Title,"Price":data.Price,"quantity":1,"imgurl":data.imgurl,"customerDeviceID":getCookie("device"),"productid":index,"producttype":productName};
             const response = await axios.post(`${rootUrl}/cart`,cartItem,{
                 headers: {
                 Accept: "application/json",

@@ -3,6 +3,7 @@ import minus from "./minus.webp"
 import plus from "./plus.webp"
 import { Link } from "react-router-dom";
 import axios from "axios";
+import getCookie from "./cookiegetter";
 function DescriptionCard(props){
     const [quantity,setQuantity] = useState(1);
     const rootUrl = "https://drip-dextra-server.vercel.app";
@@ -21,7 +22,7 @@ function DescriptionCard(props){
     async function handleSubmit(){
         await props.openCart();
         // event.preventDefault();
-        const cartItem = {"Title":props.title,"Price":props.price,"quantity":quantity,"imgurl":props.url,"customerDeviceID":props.deviceID,"productid":props.paramVal.id,"producttype":props.paramVal.type};
+        const cartItem = {"Title":props.title,"Price":props.price,"quantity":quantity,"imgurl":props.url,"customerDeviceID":getCookie("device"),"productid":props.paramVal.id,"producttype":props.paramVal.type};
         try{
             const response = await axios.post(`${rootUrl}/cart`,cartItem,{
                 headers: {
