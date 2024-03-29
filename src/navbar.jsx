@@ -204,12 +204,16 @@ function Navbar(props){
                                 <p className="cart-info price-info">Price: Rs.{Math.floor(singleKart.Price * singleKart.quantity)}</p>
                                 <div className="quantits">
                                     <div className="inner-quantit">
-                                        <input type="image" src={minus} id={index} onClick={changeVal} className="decrement-navbar" alt="changeicons" value={valArr[index]}/>
-                                    <input type="number" className="value nav-val" readOnly value={valArr[index]?valArr[index]:singleKart.quantity}/>
-                                    <input type="image" src={plus} id={index} onClick={changeVal} className="increment-navbar" alt="changeicons" value={valArr[index]}/>
+                                    <div className="inner-but">
+                                    <input type="image" src={minus} id={index} onClick={changeVal} className="decrement-navbar" alt="changeicons" value={valArr[index]}/>
+                                        <input type="number" className="value nav-val" readOnly value={valArr[index]?valArr[index]:singleKart.quantity}/>
+                                        <input type="image" src={plus} id={index} onClick={changeVal} className="increment-navbar" alt="changeicons" value={valArr[index]}/>
                                     </div>
+                                    </div>
+                                    <div className="bin-save">
                                     <button onClick={()=>saveData(index,singleKart.Title)} className="save-button" type="submit">Save</button>
                                     <input onClick={()=>deleteFromList(singleKart.Title,singleKart.id,index)} type="image" className="bin-image" src={bin} alt="bin"/>
+                                    </div>
                                 </div>
                             </div>     
                         </div>

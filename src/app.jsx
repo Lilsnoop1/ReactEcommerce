@@ -10,6 +10,10 @@ import Contact from "./contact.jsx";
 import Navbar from "./navbar.jsx";
 import axios from "axios"
 import getCookie from "./cookiegetter.js";
+import { ring, square } from 'ldrs'
+
+square.register();
+ring.register();
 // http://localhost:27017
 
 function App(){
@@ -76,9 +80,24 @@ function App(){
     return <BrowserRouter>
     <Navbar displayProperty={display} displaySetter={setDisplay} finalCart={cart} newState={setCart}/>
         <Routes>
-            <Route path="/" element={cart?<Home WatchData={watchData} BraceletData={braceletData} RingData={ringData} />:<p>loading</p>}/>
+            <Route path="/" element={cart?<Home WatchData={watchData} BraceletData={braceletData} RingData={ringData} />:
+            <l-square
+                size="300"
+                stroke="5"
+                bg-opacity="0"
+                speed="2" 
+                color="#282A3A" 
+                >
+             </l-square>
+            }/>
             <Route path="/products/:productName" element = {cart?<Products WatchData={watchData} 
-            BraceletData={braceletData} RingData={ringData} homesetter={setCart} kart={cart} />:<h1>Loading....Please Wait</h1>}/>
+
+            BraceletData={braceletData} RingData={ringData} homesetter={setCart} kart={cart} />:<l-ring 
+                size="100"
+                stroke="5"
+                bg-opacity="0"
+                speed="2" 
+                color="#282A3A"></l-ring>}/>
             <Route path="/productdescription/:productid/:producttype" element={watchData?<Description 
             WatchData={watchData} 
             BraceletData={braceletData} 

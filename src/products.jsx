@@ -7,6 +7,7 @@ import getCookie from "./cookiegetter";
 function Products(props){
     const rootUrl = "https://drip-dextra-server.vercel.app";
     // const rootUrl = "http://localhost:27017";
+
     
     let {productName} = useParams();
     async function handleSubmit(data,index){

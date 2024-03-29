@@ -5,13 +5,14 @@ import Navbar from "./navbar.jsx"
 import Main from "./mainSection.jsx"
 import {BestSell} from "./bestSeller.jsx"
 
+// Default values shown
+
 function Home(props){
     return <div>
         <SaleNav/>
         <Outlet/>
         <Main/>
         {props.WatchData?<BestSell Watch={props.WatchData} Ring={props.RingData} Bracelet={props.BraceletData}/>:null}
-
     </div>
 }
 export default Home;

@@ -254,6 +254,14 @@ p{
     text-decoration: none;
     color: #282A3A;
 }
+l-square{
+    margin-left: 43%;
+    margin-top: 20%;
+}
+l-ring{
+    margin-left: 50%;
+    margin-top: 20%;
+}
 .addtocart{
     font-size: 3vh;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -396,28 +404,60 @@ p{
     }
 }
 @media all and (max-width:500px) and (min-width :300px){
+    .descrip{
+        gap: 0 !important;
+    }
+    l-square{
+        margin-left: 10% !important;
+        margin-top: 20% !important;
+    }
+    l-ring{
+        margin-left: 35%;
+        margin-top: 20%;
+    }
     .cart-component{
         flex-direction: column;
         gap: 1vh;
+    }
+    .contact-head{
+        width: 100% !important; 
+    }
+    .text-descrip{
+        font-size: 1.75vh !important;
+        line-height: 1.5 !important;
     }
     .checkout-image{
         width: 19vh !important;
         height: 19vh !important;
         aspect-ratio: 0 !important;
     }
+    .img-carousel{
+        width: 100% !important;
+        padding: 1vh !important;
+        margin: 0 !important;
+    }
+    .carousel-item{
+        padding: 1vh !important;
+    }
     .singleProduct{
         padding: 0 !important;
+    }
+    .myContainer{
+        margin-top: 19.5vh !important;
+    }
+    .slick-slider{
+        margin-top: 6vh;
     }
     .save-button{
         width: 20% !important;
         font-size: 1.5vh;
     }
     .increment-navbar,.decrement-navbar{
-        width: 2vh !important;
-        height: 2vh !important;
+        width: 3vh !important;
+        height: 3vh !important;
     }
     .value{
-        font-size: 1.75vh !important;
+        font-size: 3vh !important;
     }
     .save-button{
         font-size: 1.75vh !important;
@@ -436,9 +476,15 @@ p{
     .quantit-div{
         width: 100% !important;
     }
+    .empty-warn{
+        font-size: 3vh !important;
+    }
     .quantits{
-        gap: 0vh !important;
-        justify-content: space-evenly !important;
+        flex-direction: column;
+        align-items: flex-start !important;
+        font-size: 1vh !important;
+        padding: 0vh !important;
+        width: 100% !important;
     }
     .singleCard{
         width: 23vh !important;
@@ -480,6 +526,33 @@ p{
     }
     .head-descrip{
         font-size: 2.2vh !important;
+    }
+    .main-text{
+        font-size: 5vh;
+    }
+    .bin-image{
+        height: 3vh !important;
+        width: 3vh !important;
+    }
+    .bin-save{
+        width: 100% ;
+        display: flex;
+        align-items: center ;
+        justify-content: space-around;
+    }
+    .inner-quantit{
+        width: 100%;
+    }
+    .inner-but{
+        width: 100% !important;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .navbar-checkout{
+        width: 70% !important;
+        font-size: 2vh !important;
+        margin: 4vh !important;
     }
 }
 
@@ -551,7 +624,7 @@ p{
         font-size: 2.2vh !important;
     }
     .main-text{
-        font-size: 5vh;
+        font-size: 4vh;
     }
     .myContainer{
         padding: 0 7vh 0 7vh !important;
